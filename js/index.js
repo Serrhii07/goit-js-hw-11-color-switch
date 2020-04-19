@@ -19,24 +19,20 @@ btnStartRef.addEventListener('click', handleBodyColorStart);
 btnStopRef.addEventListener('click', handleBodyColorStop);
 
 let intervalId = null;
-let isActive = false;
 
 function handleBodyColorStart() {
-  if (isActive) {
-    return;
-  }
-
+  btnStartRef.setAttribute('disabled', 'disabled');
   intervalId = setInterval(() => {
-    isActive = true;
     changeColor();
   }, 1000);
 }
 
 function changeColor() {
-  bodyRef.style.backgroundColor = colors[randomIntegerFromInterval(0, 5)];
+  bodyRef.style.backgroundColor =
+    colors[randomIntegerFromInterval(0, colors.length - 1)];
 }
 
 function handleBodyColorStop() {
-  isActive = false;
+  btnStartRef.removeAttribute('disabled', 'disabled');
   clearInterval(intervalId);
 }
