@@ -21,7 +21,7 @@ btnStopRef.addEventListener('click', handleBodyColorStop);
 let intervalId = null;
 
 function handleBodyColorStart() {
-  btnStartRef.setAttribute('disabled', 'disabled');
+  btnStartRef.setAttribute('disabled', 'true');
   intervalId = setInterval(() => {
     changeColor();
   }, 1000);
@@ -33,6 +33,6 @@ function changeColor() {
 }
 
 function handleBodyColorStop() {
-  btnStartRef.removeAttribute('disabled', 'disabled');
+  btnStartRef.removeAttribute('disabled');
   clearInterval(intervalId);
 }
